@@ -1,0 +1,6 @@
+#! /bin/sh
+
+# Save this file into /usr/local/bin/ws and make sure you have the right permissions to execute
+# chmod +rwx /usr/local/bin/ws
+# /usr/local/bin should be in the PATH
+open -na "WebStorm.app" --args "$@"
