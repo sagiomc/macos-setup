@@ -106,14 +106,16 @@ No more downloading `.dmg` files and dragging to your Application folder!
 To start using Homebrew Cask, you just need Homebrew installed and search applications with
 the flag `--cask`.
 
-### Quick Look Plugins
-
 These plugins add support for the corresponding files type to Mac Quick Look (In Finder, mark a file
 and press space to start a Quick Look). The plugins includes features like syntax highlighting, Markdown,
 rendering, preview of JSON, patch files, CSV, ZIP files and more.
 
 ```sh
 brew install --cask \
+    ngrok \
+    notion \
+    insomnia \
+    brave-browser \
     qlcolorcode \
     qlstephen \
     qlmarkdown \
@@ -128,7 +130,7 @@ brew install --cask \
 ## Main Developer Software
 
 ```sh
-brew install git node n kubernetes-cli deno tree httpie htop bat kubectx kube-ps1
+brew install git node nvm kubernetes-cli deno tree httpie htop bat kubectx kube-ps1 trash-cli
 # Update latest version of npm
 sudo npm i -g npm
 # Define git name and email

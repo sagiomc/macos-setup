@@ -1,17 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# If something weird happes, might be for this line:
-# export PATH=/usr/local/bin:$PATH
-# DEBUG=true
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/giovanni/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# LOAd a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="avit"
-# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,7 +76,8 @@ zsh-syntax-highlighting
 zsh-completions
 brew
 docker
-osx
+docker-compose
+macos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,13 +105,36 @@ KUBE_PS1_DIVIDER=" : "
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
 
+# Export variables for Local Env
+export DOCKER_RUN_USER="$(id -u)"
+export DOCKER_RUN_GROUP="$(id -g)"
+
+# Add the following to /Users/runner/.bash_profile or your desired shell configuration file:
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+# [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias npmrc-on="mv ~/.npmrc-tmp ~/.npmrc"
+alias npmrc-off="mv ~/.npmrc ~/.npmrc-tmp"
 alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 alias k=kubectl
-alias ws=webstorm
+# alias workspace="cd /Users/giovanni/workspace"
+alias dsup="USER=christian.santiago docker-compose -f docker-compose.yml -f docker-compose.mac.yml up"
+alias dsdn="USER=christian.santiago docker-compose -f docker-compose.yml -f docker-compose.mac.yml down"
+alias dlup="USER=giovannisantiago docker-compose -f docker-compose.yml -f docker-compose.local.yml up"
+alias dldn="USER=giovannisantiago docker-compose -f docker-compose.yml -f docker-compose.local.yml down"
+alias search="grep -IRn --exclude-dir={.git,node_modules,build,bridge,dist,db-backups,webpack} --exclude={\*.lock,\*.json,\*.log,\*app.js,\*app.js.map,\*chunk.js.map,\*chunk.js,stats.html} -E"
+alias reload-ssh="ssh-add -K ~/.ssh/id_rsa"
+
+# export YVM_DIR=/usr/local/opt/yvm
+# [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
