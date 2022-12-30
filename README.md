@@ -124,7 +124,9 @@ brew install --cask \
     quicklook-csv \
     betterzip \
     webpquicklook \
-    suspicious-package
+    suspicious-package \
+    alfred \
+    numi
 ```
 
 ## Main Developer Software
